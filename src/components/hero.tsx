@@ -29,7 +29,7 @@ export default function HeroSection() {
               <Button asChild size="lg" className="text-lg px-8">
                 <Link href="#projects">View My Work</Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8">
+              <Button variant="outline" size="lg" className="text-lg px-8 hover:bg-accent">
                 <Link href="#contact">Get In Touch</Link>
               </Button>
             </div>
@@ -58,17 +58,17 @@ export default function HeroSection() {
               <CardContent className="p-0">
                 <div className="relative aspect-square">
                   <Image
-                    src="/profilePic.jpg" // Replace with your image path
+                    src="/profilePic.jpg" 
                     alt="Elkan - Developer"
                     fill
-                    className="object-cover"
+                    className="object-cover pointer-events-none select-none"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
                 </div>
 
                 {/* Floating Badge */}
-                <div className="absolute -bottom-2 -right-2 bg-primary text-primary-foreground px-6 py-3 rounded-full shadow-lg">
+                <div className="absolute -bottom-0 -right-0 bg-primary text-primary-foreground px-6 py-3 rounded-full shadow-lg">
                   <p className="font-bold">5+ Years Experience</p>
                 </div>
               </CardContent>
@@ -79,3 +79,7 @@ export default function HeroSection() {
     </section>
   );
 }
+
+
+
+
