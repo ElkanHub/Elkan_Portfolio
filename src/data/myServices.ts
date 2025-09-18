@@ -3,7 +3,7 @@ import { Code, Wrench, Palette, PenTool, Globe } from "lucide-react";
 
 const services = [
   { 
-    title: "Build clean, fast, and functional websites/apps.", 
+    title: "Build clean, fast, and functional websites/webApps.", 
     icon: Code 
   },
   { 

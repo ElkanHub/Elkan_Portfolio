@@ -2,6 +2,10 @@ import AboutHeroSection from "@/components/aboutHero";
 import TheStorySection from "@/components/storySection";
 import ServicesSection from "@/components/servicesSection";
 import services from "@/data/myServices";
+import HobbySectionTwo from "@/components/hobbySectionTwo";
+import hobbies from "@/data/hobbies";
+import TestimonialsSection from "@/components/testimonialSection";
+import testimonials from "@/data/testimonials";
 
 export default function AboutPage() {
   return (
@@ -28,6 +32,17 @@ So, I dug in and did what I could. And, between you and me… I never actually f
         bridgeToPresent="Today, I see every project as more than code or design — it's a chance to shape experiences, to add a piece of me, to help someone's idea take form, and to build the digital tools that make a difference in people's lives. Sounds very idealistic i know, but hey, that's me! Let's connect and create something meaningful together."
       />
       <ServicesSection services={services} />
+      <HobbySectionTwo
+        title="Beyond the Code"
+        intro="When I'm not crafting digital experiences, you'll find me..."
+        hobbies={hobbies}
+      />
+      <TestimonialsSection 
+        title="What Others Say"
+        subtitle="Hear from people I've had the pleasure of working with"
+        testimonials={testimonials}
+        showRating={false}
+      />
 
       {/* Rest of your about page content */}
     </div>
