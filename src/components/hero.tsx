@@ -20,16 +20,20 @@ export default function HeroSection() {
             </div>
 
             <p className="text-lg text-muted-foreground max-w-2xl">
-              I provide <strong>real solutions</strong> with modern technologies.
-              Specializing in React, Next.js, and Node.js to build performant
-              web applications.
+              I provide <strong>real solutions</strong> with modern
+              technologies. Specializing in React, Next.js, and Node.js to build
+              performant web applications.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
               <Button asChild size="lg" className="text-lg px-8">
                 <Link href="#projects">View My Work</Link>
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 hover:bg-accent">
+              <Button
+                variant="outline"
+                size="lg"
+                className="text-lg px-8 hover:bg-accent"
+              >
                 <Link href="#contact">Get In Touch</Link>
               </Button>
             </div>
@@ -56,12 +60,19 @@ export default function HeroSection() {
           <div className="flex justify-center lg:justify-end">
             <Card className="relative w-full max-w-md overflow-hidden border-0 shadow-xl">
               <CardContent className="p-0">
-                <div className="relative aspect-square">
+                <div className="group relative aspect-square">
                   <Image
-                    src="/profilePic.jpg" 
+                    src="/profilePic.jpg"
                     alt="Elkan - Developer"
                     fill
-                    className="object-cover pointer-events-none select-none"
+                    className="absolute inset-0 object-cover pointer-events-none select-none transition-opacity duration-300 group-hover:opacity-0"
+                    priority
+                  />
+                  <Image
+                    src="/profilePic3.jpg"
+                    alt="On Hover"
+                    fill
+                    className="absolute inset-0 object-cover pointer-events-none select-none opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
@@ -79,7 +90,3 @@ export default function HeroSection() {
     </section>
   );
 }
-
-
-
-

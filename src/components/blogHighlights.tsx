@@ -48,7 +48,7 @@ export default function BlogHighlights({
         {/* Blog Posts Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayPosts.map((post) => (
-            <Card key={post.id} className="group transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-border/50 h-full flex flex-col">
+            <Card key={post.id} className="group transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-border/50 h-full flex flex-col hover:outline">
               <CardHeader>
                 <div className="flex justify-between items-start mb-2">
                   <Badge variant={post.featured ? "default" : "secondary"} className="text-xs">
