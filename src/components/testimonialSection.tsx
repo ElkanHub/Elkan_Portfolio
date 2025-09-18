@@ -59,7 +59,7 @@ export default function TestimonialsSection({
                         <Star
                           key={i}
                           className={`h-4 w-4 ${
-                            i < testimonial.rating
+                            i < (testimonial.rating ?? 0)
                               ? "text-yellow-500 fill-yellow-500"
                               : "text-gray-300"
                           }`}
