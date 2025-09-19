@@ -2,7 +2,6 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
@@ -10,51 +9,16 @@ import {
   Pie,
   Cell,
   ResponsiveContainer,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
   Tooltip,
-  Legend,
 } from "recharts";
-import { Filter, Users, Briefcase, Beaker, BarChart3 } from "lucide-react";
-import { projectTypes, contributionData } from "@/data/projects";
+import { projectTypes } from "@/data/projects";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 
 export default function ProjectsDashboard() {
   return (
     <div className="space-y-6">
-      {/* Top Navigation */}
-      <div className="flex flex-wrap gap-2 items-center">
-        <Button variant="outline" size="sm" className="flex items-center gap-1">
-          <Beaker className="h-4 w-4" />
-          Experimental projects
-        </Button>
-        <Button variant="outline" size="sm" className="flex items-center gap-1">
-          <Briefcase className="h-4 w-4" />
-          Casestudies
-        </Button>
-        <Button variant="outline" size="sm" className="flex items-center gap-1">
-          <BarChart3 className="h-4 w-4" />
-          Real world projects
-        </Button>
-        <Button variant="outline" size="sm" className="flex items-center gap-1">
-          <Users className="h-4 w-4" />
-          Users accross all platforms
-        </Button>
-        <Button variant="outline" size="sm" className="flex items-center gap-1">
-          <Filter className="h-4 w-4" />
-          Filters
-        </Button>
-        <div className="ml-auto flex items-center gap-2">
-          <Badge variant="secondary" className="text-sm">
-            50+ projects
-          </Badge>
-        </div>
-      </div>
-
+      
       {/* Stats and Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Stats Cards */}
@@ -62,8 +26,8 @@ export default function ProjectsDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card>
               <CardContent className="p-4 flex flex-col items-center justify-center">
-                <div className="text-3xl font-bold">50+</div>
-                <p className="text-sm text-muted-foreground">Total Projects</p>
+                <div className="text-3xl font-bold">30</div>
+                <p className="text-sm text-muted-foreground">Real world</p>
               </CardContent>
             </Card>
             <Card>
@@ -74,18 +38,19 @@ export default function ProjectsDashboard() {
             </Card>
             <Card>
               <CardContent className="p-4 flex flex-col items-center justify-center">
-                <div className="text-3xl font-bold">30</div>
-                <p className="text-sm text-muted-foreground">Real World</p>
+                <div className="text-3xl font-bold">11</div>
+                <p className="text-sm text-muted-foreground">Case Studies</p>
               </CardContent>
             </Card>
           </div>
 
           {/* Tabs for Project Categories */}
           <Tabs defaultValue="all" className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
+            <TabsList className="grid w-full grid-cols-4 bg-black/10">
               <TabsTrigger value="all">All Projects</TabsTrigger>
-              <TabsTrigger value="experimental">Experimental</TabsTrigger>
               <TabsTrigger value="real">Real World</TabsTrigger>
+              <TabsTrigger value="experimental">Experimental</TabsTrigger>
+              <TabsTrigger value="caseStudy">Case Studies</TabsTrigger>
             </TabsList>
             <TabsContent value="all" className="space-y-4">
               <Card>
@@ -150,6 +115,19 @@ export default function ProjectsDashboard() {
                 </CardContent>
               </Card>
             </TabsContent>
+            <TabsContent value="caseStudy">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Case Studies </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">
+                    Projects showcasing in-depth analysis and insights not yet
+                    built. Only documentation available.
+                  </p>
+                </CardContent>
+              </Card>
+            </TabsContent>
           </Tabs>
         </div>
 
@@ -188,38 +166,7 @@ export default function ProjectsDashboard() {
           </Card>
         </div>
       </div>
-
-      {/* Contribution Chart */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Graph of contribution hours logged in monthly</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart
-              data={contributionData}
-              margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis domain={[0, 40]} />
-              <Tooltip />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="hours"
-                stroke="#8884d8"
-                activeDot={{ r: 8 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
+      
     </div>
   );
 }
