@@ -1,5 +1,6 @@
 const blogPosts = [
   {
+    id: "getting-started-nextjs-14",
     title: "Getting Started with Next.js 14",
     excerpt: "Learn how to build modern web applications with the latest features in Next.js 14, including the App Router and server components.",
     date: "May 15, 2023",
@@ -12,6 +13,7 @@ const blogPosts = [
     featured: true
   },
   {
+    id: "future-react-server-components",
     title: "The Future of React Server Components",
     excerpt: "Exploring the benefits and use cases of React Server Components and how they're changing the landscape of React development.",
     date: "April 28, 2023",
@@ -23,6 +25,7 @@ const blogPosts = [
     imageAlt: "React Server Components diagram"
   },
   {
+    id: "css-grid-vs-flexbox",
     title: "CSS Grid vs Flexbox: When to Use Which",
     excerpt: "A comprehensive comparison of CSS Grid and Flexbox layouts with practical examples and best use cases for each approach.",
     date: "March 30, 2023",

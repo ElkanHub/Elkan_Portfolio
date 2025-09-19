@@ -7,6 +7,7 @@ import BlogTile from "@/components/blogTile";
 import blogPostsData from "@/data/bolgPosts"; // ✅ Temporary static data. Replace with DB/API call later.
 
 type BlogPost = {
+    id: string;
   title: string;
   excerpt: string;
   date: string;
