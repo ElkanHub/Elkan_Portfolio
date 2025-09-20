@@ -29,7 +29,7 @@ export function Header() {
                 <Link href="/projects">Projects</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            <NavigationMenuItem className="hover:outline bg-primary text-white dark:bg-primary-dark dark:text-black rounded-md">
               <NavigationMenuLink asChild className="px-3 py-2">
                 <Link href="/blog">Blog</Link>
               </NavigationMenuLink>
