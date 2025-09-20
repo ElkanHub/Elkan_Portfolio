@@ -13,7 +13,7 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 
-export function Header() {
+export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
