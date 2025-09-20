@@ -1,9 +1,9 @@
 // src/app/layout.tsx
 import "./globals.css";
 
-import Header  from "@/components/header";
+import Header from "@/components/header";
 import Footer from "@/components/footer";
-import Toaster from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata = {
   title: "My First Shadcn App",
