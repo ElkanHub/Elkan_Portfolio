@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
-export function Header() {
+export default function Header() {
   return (
     <header className="shadow-sm p-4 bg-white">
       <nav className="container mx-auto flex justify-between items-center">
@@ -29,8 +29,8 @@ export function Header() {
                 <Link href="/projects">Projects</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
-            <NavigationMenuItem className="hover:outline bg-primary text-white dark:bg-primary-dark dark:text-black rounded-md">
-              <NavigationMenuLink asChild className="px-3 py-2">
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
                 <Link href="/blog">Blog</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
