@@ -15,28 +15,28 @@ export default function Header() {
         <NavigationMenu className="border-1 rounded-md shadow-sm">
           <NavigationMenuList>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild className="px-3 py-2">
-                <Link href="/">Home</Link>
+              <NavigationMenuLink href="/" className="px-3 py-2">
+                Home
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild className="px-3 py-2">
-                <Link href="/about">About</Link>
+              <NavigationMenuLink href="/about" className="px-3 py-2">
+                About
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild className="px-3 py-2">
-                <Link href="/projects">Projects</Link>
+              <NavigationMenuLink href="/projects" className="px-3 py-2">
+                Projects
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link href="/blog">Blog</Link>
+              <NavigationMenuLink href="/blog" className="px-3 py-2">
+                Blog
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem className="hover:outline bg-primary text-white dark:bg-primary-dark dark:text-black rounded-md">
-              <NavigationMenuLink asChild className="px-3 py-2">
-                <Link href="/contact">Contact</Link>
+              <NavigationMenuLink href="/contact" className="px-3 py-2">
+                Contact
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -44,4 +44,13 @@ export default function Header() {
       </nav>
     </header>
   );
+}
+
+//refactor the navigation menu to be its own component with this
+{
+  /* <NavigationMenuItem>
+  <NavigationMenuLink href="/blog" className="px-3 py-2">
+    Blog
+  </NavigationMenuLink>
+</NavigationMenuItem> */
 }
