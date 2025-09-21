@@ -3,6 +3,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu } from "lucide-react"; // Icon
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -23,9 +24,12 @@ export default function Header() {
   ];
 
   const [open, setOpen] = useState(false);
-  const [currentPg, setCurrentPg] = useState(
-    `${navLinks[0].label.charAt(0).toUpperCase() + navLinks[0].label.slice(1)}`
-  );
+  const pathname = usePathname();
+  const currentPage =
+    navLinks
+      .find((item) => item.href === pathname)
+      ?.label.charAt(0)
+      .toUpperCase() + navLinks[0].label.slice(1) || "Home";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 shadow-sm p-4 bg-white">
@@ -59,7 +63,7 @@ export default function Header() {
           <Sheet open={open} onOpenChange={setOpen}>
             <div className="flex justify-between items-center">
               <h2 className="flex justify-between items-center p-4 font-bold text-lg text-foreground">
-                {currentPg}
+                {currentPage}
               </h2>
               <SheetTrigger asChild>
                 <button aria-label="Open Menu">
@@ -83,10 +87,7 @@ export default function Header() {
                         ? " pl-6 text-lg font-medium hover:accent hover:outline-2 focus:ring-2 focus:ring-offset-2 focus:ring-black "
                         : "pl-6 text-lg font-medium bg-black/90 text-white hover:bg-black/70"
                     }`}
-                    onClick={() => {
-                      setOpen(false);
-                      setCurrentPg(item.label);
-                    }}
+                    onClick={() => setOpen(false)}
                   >
                     {item.label}
                   </Link>
