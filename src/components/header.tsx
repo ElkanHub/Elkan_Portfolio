@@ -25,11 +25,10 @@ export default function Header() {
 
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const currentPage =
-    navLinks
-      .find((item) => item.href === pathname)
-      ?.label.charAt(0)
-      .toUpperCase() + navLinks[0].label.slice(1) || "Home";
+  const match = navLinks.find((item) => item.href === pathname);
+  const currentPage = match
+    ? match.label.charAt(0).toUpperCase() + match.label.slice(1)
+    : "Home";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 shadow-sm p-4 bg-white">
