@@ -60,24 +60,24 @@ export default function BlogsDashboard() {
       <div className="flex w-full gap-6 p-0 m-0">
         {/* === Stats Cards === */}
         <div className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <Card>
               <CardContent className="py-0 px-4 flex flex-col items-center justify-center">
                 {/* 🔗 DB HOOK:
                     Replace static counts with dynamic totals from DB */}
-                <div className="text-3xl font-bold">30</div>
+                <div className="md:text-3xl text-2xl font-bold">30</div>
                 <p className="text-sm text-muted-foreground">Tutorials</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="py-0 px-4 flex flex-col items-center justify-center">
-                <div className="text-3xl font-bold">12</div>
+                <div className="md:text-3xl text-2xl font-bold">12</div>
                 <p className="text-sm text-muted-foreground">Insights</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="py-0 px-4 flex flex-col items-center justify-center">
-                <div className="text-3xl font-bold">11</div>
+                <div className="md:text-3xl text-2xl font-bold">10</div>
                 <p className="text-sm text-muted-foreground">OpenEnded</p>
               </CardContent>
             </Card>
@@ -89,12 +89,12 @@ export default function BlogsDashboard() {
             onValueChange={setFilter} // ✅ Changes tab & triggers effect above
             className="w-full"
           >
-            <TabsList className="grid w-full grid-cols-4 bg-black/10">
+            <TabsList className="h-14 md:h-8 overflow-y-auto grid w-full grid-cols-1 md:grid-cols-4 bg-black/10 md:text-sm py-1 justify-around items-center">
               {/* ⚠️ Tab values must match the filter logic exactly */}
-              <TabsTrigger value="all">All Blogs</TabsTrigger>
-              <TabsTrigger value="tutorial">Tutorials</TabsTrigger>
-              <TabsTrigger value="insights">Insights</TabsTrigger>
-              <TabsTrigger value="open-ended">Open-Ended</TabsTrigger>
+              <TabsTrigger value="all" className="p-0 m-0">All Blogs</TabsTrigger>
+              <TabsTrigger value="tutorial" className="p-0 m-0">Tutorials</TabsTrigger>
+              <TabsTrigger value="insights" className="p-0 m-0">Insights</TabsTrigger>
+              <TabsTrigger value="open-ended" className="p-0 m-0">OpenEnded</TabsTrigger>
             </TabsList>
 
             {/* ✅ Single content block, reuses the same filtered array */}

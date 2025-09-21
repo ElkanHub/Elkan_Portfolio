@@ -4,13 +4,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  PieChart,
-  Pie,
-  Cell,
-  ResponsiveContainer,
-  Tooltip,
-} from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from "recharts";
 import { projectTypes } from "@/data/projects";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
@@ -18,27 +12,26 @@ const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
 export default function ProjectsDashboard() {
   return (
     <div className="space-y-6">
-      
       {/* Stats and Charts Section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Stats Cards */}
         <div className="lg:col-span-2 space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <Card>
-              <CardContent className="p-4 flex flex-col items-center justify-center">
-                <div className="text-3xl font-bold">30</div>
+              <CardContent className="py-0 px-4 flex flex-col items-center justify-center">
+                <div className="md:text-3xl text-2xl font-bold">30</div>
                 <p className="text-sm text-muted-foreground">Real world</p>
               </CardContent>
             </Card>
             <Card>
-              <CardContent className="p-4 flex flex-col items-center justify-center">
-                <div className="text-3xl font-bold">12</div>
+              <CardContent className="py-0 px-4 flex flex-col items-center justify-center">
+                <div className="md:text-3xl text-2xl font-bold">12</div>
                 <p className="text-sm text-muted-foreground">Experimental</p>
               </CardContent>
             </Card>
             <Card>
-              <CardContent className="p-4 flex flex-col items-center justify-center">
-                <div className="text-3xl font-bold">11</div>
+              <CardContent className="py-0 px-4 flex flex-col items-center justify-center">
+                <div className="md:text-3xl text-2xl font-bold">11</div>
                 <p className="text-sm text-muted-foreground">Case Studies</p>
               </CardContent>
             </Card>
@@ -46,7 +39,7 @@ export default function ProjectsDashboard() {
 
           {/* Tabs for Project Categories */}
           <Tabs defaultValue="all" className="w-full">
-            <TabsList className="grid w-full grid-cols-4 bg-black/10">
+            <TabsList className="h-14 md:h-8 overflow-y-auto grid w-full grid-cols-1 md:grid-cols-4 bg-black/10">
               <TabsTrigger value="all">All Projects</TabsTrigger>
               <TabsTrigger value="real">Real World</TabsTrigger>
               <TabsTrigger value="experimental">Experimental</TabsTrigger>
@@ -166,7 +159,6 @@ export default function ProjectsDashboard() {
           </Card>
         </div>
       </div>
-      
     </div>
   );
 }
