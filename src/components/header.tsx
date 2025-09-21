@@ -23,6 +23,9 @@ export default function Header() {
   ];
 
   const [open, setOpen] = useState(false);
+  const [currentPg, setCurrentPg] = useState(
+    `${navLinks[0].label.charAt(0).toUpperCase() + navLinks[0].label.slice(1)}`
+  );
 
   return (
     <header className="shadow-sm p-4 bg-white">
@@ -54,11 +57,16 @@ export default function Header() {
         {/* ===== Mobile Hamburger ===== */}
         <div className="md:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger asChild>
-              <button aria-label="Open Menu">
-                <Menu className="h-6 w-6" />
-              </button>
-            </SheetTrigger>
+            <div className="flex justify-between items-center">
+              <h2 className="flex justify-between items-center p-4 font-bold text-lg text-foreground">
+                {currentPg}
+              </h2>
+              <SheetTrigger asChild>
+                <button aria-label="Open Menu">
+                  <Menu className="h-6 w-6" />
+                </button>
+              </SheetTrigger>
+            </div>
 
             <SheetContent
               side="right"
@@ -75,7 +83,10 @@ export default function Header() {
                         ? " pl-6 text-lg font-medium hover:accent hover:outline-2 focus:ring-2 focus:ring-offset-2 focus:ring-black "
                         : "pl-6 text-lg font-medium bg-black/90 text-white hover:bg-black/70"
                     }`}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      setOpen(false);
+                      setCurrentPg(item.label);
+                    }}
                   >
                     {item.label}
                   </Link>
