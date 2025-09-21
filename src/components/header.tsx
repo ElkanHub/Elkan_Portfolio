@@ -14,6 +14,14 @@ import {
 } from "@/components/ui/navigation-menu";
 
 export default function Header() {
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
+    { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact", attention: true },
+  ];
+
   const [open, setOpen] = useState(false);
 
   return (
@@ -25,31 +33,20 @@ export default function Header() {
         <div className="hidden md:block">
           <NavigationMenu>
             <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/" className="px-3 py-2">
-                  Home
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/about" className="px-3 py-2">
-                  About
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/projects" className="px-3 py-2">
-                  Projects
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/blog" className="px-3 py-2">
-                  Blog
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/contact" className="px-3 py-2">
-                  Contact
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+              {navLinks.map((item) => (
+                <NavigationMenuItem
+                  key={item.href}
+                  className={`${
+                    item.attention
+                      ? "rounded-md bg-black text-white hover:accent"
+                      : "rounded-md hover:outline"
+                  }`}
+                >
+                  <NavigationMenuLink href={item.href} className="px-3 py-2">
+                    {item.label}
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -63,19 +60,21 @@ export default function Header() {
               </button>
             </SheetTrigger>
 
-            <SheetContent side="right" className="w-64">
-              <div className="flex flex-col space-y-4 mt-8">
-                {[
-                  { href: "/", label: "Home" },
-                  { href: "/about", label: "About" },
-                  { href: "/projects", label: "Projects" },
-                  { href: "/blog", label: "Blog" },
-                  { href: "/contact", label: "Contact" },
-                ].map((item) => (
+            <SheetContent
+              side="right"
+              className="w-64 h-fit py-6 px-0 rounded-md"
+              //edit the close button to br visible
+            >
+              <div className="flex flex-col space-y-4 mt-10 ">
+                {navLinks.map((item) => (
                   <Link
                     key={item.href}
                     href={item.href}
-                    className="text-lg font-medium"
+                    className={`${
+                      !item.attention
+                        ? " pl-6 text-lg font-medium hover:accent hover:outline-2 focus:ring-2 focus:ring-offset-2 focus:ring-black "
+                        : "pl-6 text-lg font-medium bg-black/90 text-white hover:bg-black/70"
+                    }`}
                     onClick={() => setOpen(false)}
                   >
                     {item.label}
