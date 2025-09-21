@@ -28,7 +28,7 @@ export default function Header() {
   );
 
   return (
-    <header className="shadow-sm p-4 bg-white">
+    <header className="fixed top-0 left-0 right-0 z-50 shadow-sm p-4 bg-white">
       <nav className="container mx-auto flex justify-between items-center">
         <h1 className="font-bold text-xl">Elkan_Portfolio</h1>
 
