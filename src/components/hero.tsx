@@ -65,14 +65,14 @@ export default function HeroSection() {
                     src="/profilePic.jpg"
                     alt="Elkan - Developer"
                     fill
-                    className="absolute inset-0 object-cover pointer-events-none select-none transition-opacity duration-300 group-hover:opacity-0"
+                    className="absolute inset-0 object-cover pointer-events-none select-none opacity-0 md:opacity-100 transition-opacity duration-300 group-hover:opacity-0"
                     priority
                   />
                   <Image
                     src="/profilePic3.jpg"
                     alt="On Hover"
                     fill
-                    className="absolute inset-0 object-cover pointer-events-none select-none opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+                    className="absolute inset-0 object-cover pointer-events-none select-none opacity-100 md:opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
