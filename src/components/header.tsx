@@ -70,7 +70,7 @@ export default function Header() {
 
             <SheetContent
               side="right"
-              className="w-64 h-fit py-6 px-0 rounded-md"
+              className="top-8 w-64 h-fit py-6 px-0 rounded-md"
               //edit the close button to br visible
             >
               <div className="flex flex-col space-y-4 mt-10 ">
