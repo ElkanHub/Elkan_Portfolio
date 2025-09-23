@@ -39,7 +39,7 @@ export default function ProjectsDashboard() {
 
           {/* Tabs for Project Categories */}
           <Tabs defaultValue="all" className="w-full">
-            <TabsList className="h-14 md:h-8 overflow-y-auto grid w-full grid-cols-1 md:grid-cols-4 bg-black/10">
+            <TabsList className="h-14 md:h-10 overflow-y-auto grid w-full grid-cols-1 md:grid-cols-4 bg-primary/10">
               <TabsTrigger value="all">All Projects</TabsTrigger>
               <TabsTrigger value="real">Real World</TabsTrigger>
               <TabsTrigger value="experimental">Experimental</TabsTrigger>

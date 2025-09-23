@@ -42,7 +42,7 @@ export default function BlogTile({
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
           <div className="absolute bottom-4 left-4">
             <Badge className="bg-white/90 text-black hover:bg-white">{category}</Badge>
           </div>

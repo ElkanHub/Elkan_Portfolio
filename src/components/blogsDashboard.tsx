@@ -89,7 +89,7 @@ export default function BlogsDashboard() {
             onValueChange={setFilter} // ✅ Changes tab & triggers effect above
             className="w-full"
           >
-            <TabsList className="h-14 md:h-8 overflow-y-auto grid w-full grid-cols-1 md:grid-cols-4 bg-black/10 md:text-sm py-1 justify-around items-center">
+            <TabsList className="h-14 md:h-8 overflow-y-auto grid w-full grid-cols-1 md:grid-cols-4 bg-primary/10 md:text-sm py-1 justify-around items-center">
               {/* ⚠️ Tab values must match the filter logic exactly */}
               <TabsTrigger value="all" className="p-0 m-0">All Blogs</TabsTrigger>
               <TabsTrigger value="tutorial" className="p-0 m-0">Tutorials</TabsTrigger>

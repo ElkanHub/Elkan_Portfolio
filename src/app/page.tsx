@@ -22,7 +22,7 @@ export default function HomePage() {
         />
       </div>
       <SkillsSection />
-      <div className="bg-gray-200 py-12 px-4 w-full flex justify-center">
+      <div className="bg-secondary py-12 px-4 w-full flex justify-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           So basically, I’m a JavaScript Developer.
         </h2>

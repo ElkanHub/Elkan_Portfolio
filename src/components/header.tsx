@@ -25,7 +25,7 @@ export default function Header() {
 
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const match = navLinks.find((item) => item.href === pathname);
+  const match = navLinks.find((item) => item.href === pathname || pathname.startsWith(`${item.href}/`));
   const currentPage = match
     ? match.label.charAt(0).toUpperCase() + match.label.slice(1)
     : "Home";
@@ -44,7 +44,7 @@ export default function Header() {
                   key={item.href}
                   className={`${
                     item.attention
-                      ? "rounded-md bg-black text-white hover:accent"
+                      ? "rounded-md bg-primary text-white hover:accent"
                       : "rounded-md hover:outline"
                   }`}
                 >
@@ -83,8 +83,8 @@ export default function Header() {
                     href={item.href}
                     className={`${
                       !item.attention
-                        ? " pl-6 text-lg font-medium hover:accent hover:outline-2 focus:ring-2 focus:ring-offset-2 focus:ring-black "
-                        : "pl-6 text-lg font-medium bg-black/90 text-white hover:bg-black/70"
+                        ? " pl-6 py-2 text-lg font-medium hover:accent hover:outline-2 focus:ring-2 focus:ring-offset-2 focus:ring-black "
+                        : "pl-6 py-2 text-lg font-medium bg-black/90 text-white hover:bg-black/70"
                     }`}
                     onClick={() => setOpen(false)}
                   >

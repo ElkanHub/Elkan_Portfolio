@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="mt-16 min-h-screen bg-gray-100 text-gray-900 overflow-x-hidden">
+      <body className="mt-16 min-h-screen bg-background text-text overflow-x-hidden">
         {/* Header */}
         <Header />
         {/* Page Content */}
