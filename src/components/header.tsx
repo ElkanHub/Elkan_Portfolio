@@ -84,7 +84,7 @@ export default function Header() {
                     className={`${
                       !item.attention
                         ? " pl-6 py-2 text-lg font-medium hover:accent hover:outline-2 focus:ring-2 focus:ring-offset-2 focus:ring-black "
-                        : "pl-6 py-2 text-lg font-medium bg-black/90 text-white hover:bg-black/70"
+                        : "pl-6 py-2 text-lg font-medium bg-primary/90 text-white hover:bg-accent"
                     }`}
                     onClick={() => setOpen(false)}
                   >
