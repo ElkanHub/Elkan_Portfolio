@@ -1,5 +1,6 @@
 import Hero from "@/components/hero";
 import About from "@/components/about";
+import Founder from "@/components/founder";
 import Work from "@/components/work";
 import Services from "@/components/services";
 import Contact from "@/components/contact";
@@ -12,6 +13,9 @@ export default function Home() {
 
       {/* About Section */}
       <About />
+
+      {/* Founder Section */}
+      <Founder />
 
       {/* Selected Projects Section */}
       <Work />

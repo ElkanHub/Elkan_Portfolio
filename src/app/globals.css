@@ -19,9 +19,11 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-brand-navy: var(--brand-navy);
 }
 
 :root {
+  --brand-navy: #0f172a;
   --background: #0e0e0e;
   --foreground: #efefef;
   --primary: #ffffff;

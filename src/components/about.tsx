@@ -19,7 +19,10 @@ export default function About() {
     if (textRef.current) {
       const words = textRef.current.innerText.split(" ");
       textRef.current.innerHTML = words
-        .map((word) => `<span class="inline-block overflow-hidden"><span class="about-word inline-block translate-y-[100%]">${word}&nbsp;</span></span>`)
+        .map(
+          (word) =>
+            `<span class="inline-block overflow-hidden"><span class="about-word inline-block translate-y-[100%]">${word}&nbsp;</span></span>`,
+        )
         .join("");
 
       gsap.to(".about-word", {
@@ -93,9 +96,9 @@ export default function About() {
               className="text-2xl md:text-4xl lg:text-5xl font-normal leading-tight tracking-tight text-white font-editorial select-none"
             >
               Helping brands stand out in the digital age. Together we will set
-              the new status quo. No nonsense, always on point. I combine creative
-              interfaces with clean frontend and backend code to deliver premium
-              web products.
+              the new status quo. No nonsense, always on point. I combine
+              creative interfaces with clean frontend and backend code to
+              deliver premium web products.
             </h2>
 
             {/* Circular CTA Button */}
@@ -117,11 +120,16 @@ export default function About() {
           {/* Right Column: Brief Paragraph Bio */}
           <div className="lg:col-span-4 flex flex-col gap-8 lg:pl-12">
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The combination of my passion for design, code & interaction places me in
-              a unique position in the web development world. I build websites that don&apos;t just look beautiful but feel smooth, snappy, and intuitive.
+              The combination of my passion for design, code & interaction
+              places me in a unique position in the web development world. I
+              build websites that don&apos;t just look beautiful but feel
+              smooth, snappy, and intuitive.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              I am dedicated to writing clean, maintainable code, leveraging technologies like Next.js, React, Node.js, and Tailwind CSS. Every project is approached with pixel-perfect accuracy and high performance in mind.
+              I am dedicated to writing clean, maintainable code, leveraging
+              technologies like Next.js, React, Node.js, and Tailwind CSS. Every
+              project is approached with pixel-perfect accuracy and high
+              performance in mind.
             </p>
           </div>
         </div>
@@ -150,22 +158,34 @@ export default function About() {
             <div className="about-divider animated-hr" />
 
             <div className="about-detail-item flex justify-between py-2 items-center">
-              <span className="text-xs tracking-widest text-muted-foreground uppercase font-semibold">Core Services</span>
-              <span className="text-sm text-white">Full-Stack Dev / UI Design</span>
+              <span className="text-xs tracking-widest text-muted-foreground uppercase font-semibold">
+                Core Services
+              </span>
+              <span className="text-sm text-white">
+                Full-Stack Dev / UI Design
+              </span>
             </div>
 
             <div className="about-divider animated-hr" />
 
             <div className="about-detail-item flex justify-between py-2 items-center">
-              <span className="text-xs tracking-widest text-muted-foreground uppercase font-semibold">Focus Areas</span>
-              <span className="text-sm text-white">Interactive Portfolios, SaaS Apps</span>
+              <span className="text-xs tracking-widest text-muted-foreground uppercase font-semibold">
+                Focus Areas
+              </span>
+              <span className="text-sm text-white">
+                Interactive Portfolios, SaaS Apps
+              </span>
             </div>
 
             <div className="about-divider animated-hr" />
 
             <div className="about-detail-item flex justify-between py-2 items-center">
-              <span className="text-xs tracking-widest text-muted-foreground uppercase font-semibold">Frameworks</span>
-              <span className="text-sm text-white">Next.js, React, Node, Tailwind</span>
+              <span className="text-xs tracking-widest text-muted-foreground uppercase font-semibold">
+                Frameworks
+              </span>
+              <span className="text-sm text-white">
+                Next.js, React, Node, Tailwind
+              </span>
             </div>
 
             <div className="about-divider animated-hr" />
