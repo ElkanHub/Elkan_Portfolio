@@ -1,90 +1,187 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+"use client";
+
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { ArrowDown } from "lucide-react";
 
-export default function HeroSection() {
+export default function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const title1Ref = useRef<HTMLDivElement>(null);
+  const title2Ref = useRef<HTMLDivElement>(null);
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 1. Text entrance animation
+    const tl = gsap.timeline();
+    tl.to(".hero-reveal", {
+      y: 0,
+      duration: 1.2,
+      stagger: 0.15,
+      ease: "power4.out",
+      delay: 0.4,
+    });
+
+    tl.to(
+      imageContainerRef.current,
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        duration: 1.4,
+        ease: "power4.inOut",
+      },
+      "-=0.8",
+    );
+
+    tl.from(
+      ".hero-fade-in",
+      {
+        opacity: 0,
+        y: 20,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power3.out",
+      },
+      "-=0.6",
+    );
+
+    // 2. Parallax animation on the hero image
+    if (imageRef.current && imageContainerRef.current) {
+      gsap.to(imageRef.current, {
+        yPercent: 15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+    }
+
+    // 3. Horizontal scrolling marquee
+    let xPercent = 0;
+    let direction = -1;
+
+    const animateMarquee = () => {
+      if (xPercent <= -50) {
+        xPercent = 0;
+      }
+      if (xPercent > 0) {
+        xPercent = -50;
+      }
+      if (marqueeRef.current) {
+        gsap.set(marqueeRef.current, { xPercent: xPercent });
+      }
+      xPercent += 0.08 * direction;
+      requestAnimationFrame(animateMarquee);
+    };
+
+    requestAnimationFrame(animateMarquee);
+
+    // Adjust marquee scroll direction based on scroll velocity
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: "top top",
+      end: "bottom top",
+      onUpdate: (self) => {
+        direction = self.direction === 1 ? -1 : 1;
+      },
+    });
+  }, []);
+
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 to-muted p-4">
-      <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                Hi, I&apos;m <span className="text-primary">Elkan</span>
-              </h1>
-              <h2 className="text-xl md:text-2xl text-muted-foreground font-medium">
-                A Frontend Developer with Fullstack Skills
-              </h2>
-            </div>
-
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              I provide <strong>real solutions</strong> with modern
-              technologies. Specializing in React, Next.js, and Node.js to build
-              performant web applications.
-            </p>
-
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button asChild size="lg" className="text-lg px-8">
-                <Link href="#projects">View My Work</Link>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-lg px-8 hover:bg-accent"
+    <section
+      ref={containerRef}
+      id="home"
+      className="relative min-h-screen w-full flex flex-col justify-between pt-28 md:pt-36 overflow-hidden bg-[#0e0e0e]"
+    >
+      {/* 1. Main Headline Reveal */}
+      <div className="container mx-auto px-6 md:px-12 z-10 flex flex-col gap-6">
+        <div className="flex flex-col">
+          <h1 className="display-xl tracking-tight text-white uppercase select-none">
+            <span className="reveal-wrapper">
+              <span ref={title1Ref} className="reveal-inner hero-reveal">
+                Elkanah
+              </span>
+            </span>
+            <span className="reveal-wrapper">
+              <span
+                ref={title2Ref}
+                className="reveal-inner hero-reveal text-muted-foreground font-light"
               >
-                <Link href="#contact">Get In Touch</Link>
-              </Button>
-            </div>
+                Donkor
+              </span>
+            </span>
+          </h1>
+        </div>
 
-            <div className="flex items-center gap-6 pt-6">
-              <div className="flex -space-x-2">
-                {[1, 2, 3].map((item) => (
-                  <div
-                    key={item}
-                    className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border-2 border-background"
-                  >
-                    <span className="text-xs font-bold">T{item}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">50+</span>{" "}
-                Projects Completed
-              </p>
-            </div>
+        {/* Hero Meta Description Info */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mt-4 md:mt-8 hero-fade-in">
+          <div className="flex items-center gap-4 text-xs tracking-widest text-muted-foreground uppercase">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+            Available for Freelance & Contract
           </div>
 
-          {/* Image Card */}
-          <div className="flex justify-center lg:justify-end">
-            <Card className="relative w-full max-w-md overflow-hidden border-0 shadow-xl">
-              <CardContent className="p-0">
-                <div className="group relative aspect-square">
-                  <Image
-                    src="/profilePic.jpg"
-                    alt="Elkan - Developer"
-                    fill
-                    className="absolute inset-0 object-cover pointer-events-none select-none opacity-0 md:opacity-100 transition-opacity duration-300 group-hover:opacity-0"
-                    priority
-                  />
-                  <Image
-                    src="/profilePic3.jpg"
-                    alt="On Hover"
-                    fill
-                    className="absolute inset-0 object-cover pointer-events-none select-none opacity-100 md:opacity-0 transition-opacity duration-700 group-hover:opacity-100"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                </div>
-
-                {/* Floating Badge */}
-                <div className="absolute -bottom-0 -right-0 bg-primary text-primary-foreground px-6 py-3 rounded-full shadow-lg">
-                  <p className="font-bold">5+ Years Experience</p>
-                </div>
-              </CardContent>
-            </Card>
+          <div className="backdrop-blur-sm p-2 border-white border-r-2 max-w-xs text-sm text-muted-foreground leading-relaxed">
+            Freelance Full-Stack Developer & Designer crafting high-performance,
+            interactive digital experiences.
           </div>
+        </div>
+      </div>
+
+      {/* 2. Hero Background Image Container (Parallax) */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-70">
+        <div
+          ref={imageContainerRef}
+          className="relative w-full h-full overflow-hidden"
+          style={{ clipPath: "polygon(15% 15%, 85% 15%, 85% 85%, 15% 85%)" }} // dynamic clip-path transition
+        >
+          <Image
+            ref={imageRef}
+            src="/hero-bg4.png"
+            alt="Elkanah Hero Background"
+            fill
+            priority
+            quality={100}
+            className="object-cover object-top scale-100"
+          />
+        </div>
+      </div>
+
+      {/* 3. Huge Horizontal Marquee (Dennis Snellenberg's Signature) */}
+      <div className="relative w-full overflow-hidden py-4 border-y border-white/5 bg-tranparent backdrop-blur-none z-10 mt-auto">
+        <div
+          ref={marqueeRef}
+          className="flex whitespace-nowrap text-[8vw] md:text-[6vw] font-bold tracking-tight uppercase leading-none select-none text-white/95"
+        >
+          <span className="inline-block px-4">
+            Full-Stack Developer{" "}
+            <span className="text-muted-foreground font-light">—</span> UI/UX
+            Designer <span className="text-muted-foreground font-light">—</span>{" "}
+            Creative Coder{" "}
+            <span className="text-muted-foreground font-light">—</span>
+          </span>
+          <span className="inline-block px-4">
+            Full-Stack Developer{" "}
+            <span className="text-muted-foreground font-light">—</span> UI/UX
+            Designer <span className="text-muted-foreground font-light">—</span>{" "}
+            Creative Coder{" "}
+            <span className="text-muted-foreground font-light">—</span>
+          </span>
+        </div>
+      </div>
+
+      {/* 4. Bottom Info & Scroll Indicator */}
+      <div className="container mx-auto px-6 md:px-12 py-8 z-10 flex justify-between items-center hero-fade-in border-t border-white/5 text-xs text-muted-foreground">
+        <div>Located in Accra, Ghana</div>
+        <div className="flex items-center gap-2">
+          <span>Scroll Down</span>
+          <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
         </div>
       </div>
     </section>
