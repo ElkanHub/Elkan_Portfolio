@@ -137,3 +137,15 @@
   transform: scaleX(1);
   transform-origin: left;
 }
+
+/* Responsive hero image clipping container */
+.hero-clip-container {
+  clip-path: polygon(4% 4%, 96% 4%, 96% 96%, 4% 96%);
+}
+
+@media (min-width: 768px) {
+  .hero-clip-container {
+    clip-path: polygon(12% 12%, 88% 12%, 88% 88%, 12% 88%);
+  }
+}
+

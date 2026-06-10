@@ -138,8 +138,7 @@ export default function Hero() {
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none opacity-70">
         <div
           ref={imageContainerRef}
-          className="relative w-full h-full overflow-hidden"
-          style={{ clipPath: "polygon(15% 15%, 85% 15%, 85% 85%, 15% 85%)" }} // dynamic clip-path transition
+          className="relative w-full h-full overflow-hidden hero-clip-container"
         >
           <Image
             ref={imageRef}
@@ -148,7 +147,7 @@ export default function Hero() {
             fill
             priority
             quality={100}
-            className="object-cover object-top scale-100"
+            className="object-cover object-[70%_15%] scale-100"
           />
         </div>
       </div>
